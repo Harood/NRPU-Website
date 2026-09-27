@@ -17,7 +17,7 @@ import {
   Sparkles,
   X,
 } from "lucide-react";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type TouchEvent, type WheelEvent } from "react";
 
 import heroImage from "@/assets/data-center-hero.jpg";
 import femaleIcon from "@/assets/femaleicon.jpeg";
@@ -200,6 +200,9 @@ function Index() {
   const [activeProject, setActiveProject] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const wheelDistance = useRef(0);
+  const lastWheelChange = useRef(0);
 
   useEffect(() => {
     document.documentElement.classList.add("scroll-reveal-ready");
@@ -231,15 +234,35 @@ function Index() {
   const selectProject = (index: number) =>
     setActiveProject((index + researchProjects.length) % researchProjects.length);
 
-  const openEnquiryDraft = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const fields = new FormData(event.currentTarget);
-    const name = String(fields.get("name") || "").trim();
-    const email = String(fields.get("email") || "").trim();
-    const subject = String(fields.get("subject") || "Research enquiry").trim();
-    const message = String(fields.get("message") || "").trim();
-    const body = `${message}\n\nFrom: ${name}\nEmail: ${email}`;
-    window.location.href = `mailto:sheraz@neduet.edu.pk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    const touch = event.touches[0];
+    if (touch) touchStart.current = { x: touch.clientX, y: touch.clientY };
+  };
+
+  const handleTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
+    const start = touchStart.current;
+    const touch = event.changedTouches[0];
+    touchStart.current = null;
+    if (!start || !touch) return;
+    const dx = start.x - touch.clientX;
+    const dy = start.y - touch.clientY;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      selectProject(activeProject + (dx > 0 ? 1 : -1));
+    }
+  };
+
+  const handleWheel = (event: WheelEvent<HTMLDivElement>) => {
+    if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) {
+      wheelDistance.current = 0;
+      return;
+    }
+    if (Date.now() - lastWheelChange.current < 550) return;
+    wheelDistance.current += event.deltaX;
+    if (Math.abs(wheelDistance.current) >= 45) {
+      selectProject(activeProject + (wheelDistance.current > 0 ? 1 : -1));
+      wheelDistance.current = 0;
+      lastWheelChange.current = Date.now();
+    }
   };
 
   return (
@@ -449,7 +472,13 @@ function Index() {
           </div>
 
           <div className="research-explorer">
-            <div className="research-deck" aria-live="polite">
+            <div
+              className="research-deck"
+              aria-live="polite"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              onWheel={handleWheel}
+            >
               <article className="research-feature" key={project.name}>
                 <div className="research-feature-top">
                   <span>
@@ -510,12 +539,8 @@ function Index() {
                     <strong>{item.name}</strong>
                     <small>{item.status}</small>
                   </span>
-                  <ChevronRight size={18} aria-hidden="true" />
                 </button>
               ))}
-              <p className="research-index-note">
-                Select a project to read its methods, outputs, and scope.
-              </p>
             </div>
           </div>
 
@@ -616,44 +641,32 @@ function Index() {
           </div>
         </div>
         <div className="contact-enquiry">
-          <p className="section-kicker">Send an enquiry</p>
-          <h3>How can we help?</h3>
-          <form onSubmit={openEnquiryDraft}>
-            <div className="contact-fields">
-              <label>
-                Name
-                <input
-                  name="name"
-                  type="text"
-                  autoComplete="name"
-                  required
-                  placeholder="Your full name"
-                />
-              </label>
-              <label>
-                Email
-                <input
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  placeholder="you@example.com"
-                />
-              </label>
-              <label>
-                Subject
-                <input name="subject" type="text" required placeholder="Research enquiry" />
-              </label>
-              <label>
-                Message
-                <textarea name="message" rows={5} required placeholder="Write your message" />
-              </label>
+          <p className="section-kicker">Our focus</p>
+          <h3>Research across the data center lifecycle.</h3>
+          <div className="contact-focus">
+            <span>01</span>
+            <div>
+              <strong>Site and power planning</strong>
+              <p>Regional readiness, energy availability, and infrastructure requirements.</p>
             </div>
-            <button type="submit">
-              Open email draft <ChevronRight size={17} />
-            </button>
-            <p>Your email app will open with the enquiry ready to send.</p>
-          </form>
+          </div>
+          <div className="contact-focus">
+            <span>02</span>
+            <div>
+              <strong>Cooling and resource use</strong>
+              <p>Cooling choices considered alongside energy, carbon, and water.</p>
+            </div>
+          </div>
+          <div className="contact-focus">
+            <span>03</span>
+            <div>
+              <strong>AI workload decisions</strong>
+              <p>Workload placement, GPU cooling needs, and practical constraints.</p>
+            </div>
+          </div>
+          <a className="contact-email-action" href="mailto:sheraz@neduet.edu.pk">
+            Email the lab <ChevronRight size={17} />
+          </a>
         </div>
       </section>
 
