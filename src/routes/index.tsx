@@ -98,8 +98,8 @@ const projectTeam = [
   { name: "Haris Masood", role: "Final Year Student", image: harisImage },
   { name: "Afza Khursheed", role: "Final Year Student", image: femaleIcon },
   { name: "Zunaira Anwar", role: "Final Year Student", image: femaleIcon },
-  { name: "Maham Faisal", role: "3rd Year Student", image: mahamImage },
   { name: "Razia Imran Reshamwala", role: "3rd Year Student", image: raziaImage },
+  { name: "Maham Faisal", role: "3rd Year Student", image: mahamImage },
 ];
 
 const leadership = [
@@ -310,8 +310,8 @@ function Index() {
           <a href="#team" onClick={() => setMenuOpen(false)}>
             Team
           </a>
-          <a href="#contact" onClick={() => setMenuOpen(false)}>
-            Contact
+          <a className="nav-cta" href="#contact" onClick={() => setMenuOpen(false)}>
+            Start a conversation <ChevronRight size={15} aria-hidden="true" />
           </a>
         </nav>
       </header>
@@ -552,13 +552,22 @@ function Index() {
             <div className="publication-entry">
               <span className="publication-year">2026</span>
               <div>
+                <p className="publication-type">Journal article · Volume 52</p>
                 <h4>
                   Cost-benefit and environmental analysis of enhanced network switch refresh model
                   for data centers
                 </h4>
-                <p>S. M. Sheraz, A. Arfeen, and U. Haider</p>
+                <p>Syed Muhammad Sheraz, Asad Arfeen, and Umaima Haider</p>
                 <cite>Sustainable Computing: Informatics and Systems</cite>
                 <span className="publication-article"> · Article 101469</span>
+                <a
+                  className="publication-doi"
+                  href="https://doi.org/10.1016/j.suscom.2026.101469"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View DOI <ChevronRight size={16} aria-hidden="true" />
+                </a>
               </div>
             </div>
           </div>
@@ -641,32 +650,53 @@ function Index() {
           </div>
         </div>
         <div className="contact-enquiry">
-          <p className="section-kicker">Our focus</p>
-          <h3>Research across the data center lifecycle.</h3>
-          <div className="contact-focus">
-            <span>01</span>
-            <div>
-              <strong>Site and power planning</strong>
-              <p>Regional readiness, energy availability, and infrastructure requirements.</p>
+          <p className="section-kicker">Send an enquiry</p>
+          <h3>Start a conversation.</h3>
+          <form action="https://formsubmit.co/sheraz@neduet.edu.pk" method="POST">
+            <input type="hidden" name="_subject" value="New DC²E Lab website enquiry" />
+            <input type="hidden" name="_template" value="table" />
+            <input
+              className="form-honeypot"
+              type="text"
+              name="_honey"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
+            <div className="contact-fields">
+              <label>
+                Name
+                <input
+                  name="name"
+                  type="text"
+                  autoComplete="name"
+                  required
+                  placeholder="Your full name"
+                />
+              </label>
+              <label>
+                Email
+                <input
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  placeholder="you@example.com"
+                />
+              </label>
+              <label>
+                Subject
+                <input name="subject" type="text" required placeholder="How can we help?" />
+              </label>
+              <label>
+                Message
+                <textarea name="message" rows={5} required placeholder="Write your message" />
+              </label>
             </div>
-          </div>
-          <div className="contact-focus">
-            <span>02</span>
-            <div>
-              <strong>Cooling and resource use</strong>
-              <p>Cooling choices considered alongside energy, carbon, and water.</p>
-            </div>
-          </div>
-          <div className="contact-focus">
-            <span>03</span>
-            <div>
-              <strong>AI workload decisions</strong>
-              <p>Workload placement, GPU cooling needs, and practical constraints.</p>
-            </div>
-          </div>
-          <a className="contact-email-action" href="mailto:sheraz@neduet.edu.pk">
-            Email the lab <ChevronRight size={17} />
-          </a>
+            <button type="submit">
+              Submit enquiry <ChevronRight size={17} aria-hidden="true" />
+            </button>
+          </form>
         </div>
       </section>
 
