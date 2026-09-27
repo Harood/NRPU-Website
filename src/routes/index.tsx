@@ -22,14 +22,14 @@ import { useEffect, useRef, useState, type TouchEvent, type WheelEvent } from "r
 import heroImage from "@/assets/data-center-hero.jpg";
 import femaleIcon from "@/assets/femaleicon.jpeg";
 import harisImage from "@/assets/haris-masood.png";
-import mahamImage from "@/assets/maham-faisal.png";
-import raziaImage from "@/assets/razia-reshamwala.png";
+import mahamImage from "@/assets/maham-white-bg.webp";
+import raziaImage from "@/assets/razia-white-bg.webp";
 import rehanaImage from "@/assets/rehana-tabasum.png";
 import sherazImage from "@/assets/sheraz.png";
-import farazImage from "@/assets/faraz.png";
-import umaimaImage from "@/assets/umaima.png";
-import mustafaImage from "@/assets/mustafa.png";
-import shenilaImage from "@/assets/shenila-zardari.png";
+import farazImage from "@/assets/faraz-white-bg.webp";
+import mustafaImage from "@/assets/mustafa-white-bg.webp";
+import shenilaImage from "@/assets/shenila-white-bg.webp";
+import umaimaImage from "@/assets/umaima-white-bg.webp";
 import nedSeEmblem from "@/assets/nedlogo-transparent.png";
 
 export const Route = createFileRoute("/")({
