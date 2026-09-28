@@ -597,6 +597,39 @@ function Index() {
               </article>
 
               <article className="publication-entry">
+                <span className="publication-year">2024</span>
+                <div>
+                  <p className="publication-type">Journal article · Volume 42</p>
+                  <h4>
+                    A port consolidation model for data center network infrastructure energy
+                    efficiency
+                  </h4>
+                  <p>Syed Muhammad Sheraz, Asad Arfeen, and Umaima Haider</p>
+                  <cite>Sustainable Computing: Informatics and Systems</cite>
+                  <span className="publication-article"> · Article 100973</span>
+                  <div className="publication-actions">
+                    <a
+                      className="publication-doi"
+                      href="https://www.sciencedirect.com/science/article/pii/S2210537924000180"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View article <ExternalLink size={15} aria-hidden="true" />
+                    </a>
+                    <a
+                      className="publication-doi"
+                      href="https://doi.org/10.1016/j.suscom.2024.100973"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      DOI: 10.1016/j.suscom.2024.100973
+                      <ExternalLink size={15} aria-hidden="true" />
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <article className="publication-entry">
                 <span className="publication-year">2023</span>
                 <div>
                   <p className="publication-type">Journal article · IEEE Access · Volume 11</p>
@@ -713,13 +746,17 @@ function Index() {
           </div>
           <div className="contact-detail">
             <span>Email</span>
-            <a href="mailto:sheraz@neduet.edu.pk">sheraz@neduet.edu.pk</a>
+            <div>
+              <a href="mailto:nrpu178875@gmail.com">nrpu178875@gmail.com</a>
+              <br />
+              <a href="mailto:sheraz@neduet.edu.pk">sheraz@neduet.edu.pk</a>
+            </div>
           </div>
         </div>
         <div className="contact-enquiry">
           <p className="section-kicker">Send an enquiry</p>
           <h3>Start a conversation.</h3>
-          <form action="https://formsubmit.co/sheraz@neduet.edu.pk" method="POST">
+          <form action="https://formsubmit.co/nrpu178875@gmail.com" method="POST">
             <input type="hidden" name="_subject" value="New DC²E Lab website enquiry" />
             <input type="hidden" name="_template" value="table" />
             <input
@@ -817,6 +854,7 @@ function Index() {
               <br />
               Karachi 75270, Pakistan
             </p>
+            <a href="mailto:nrpu178875@gmail.com">nrpu178875@gmail.com</a>
             <a href="mailto:sheraz@neduet.edu.pk">sheraz@neduet.edu.pk</a>
           </div>
         </div>
