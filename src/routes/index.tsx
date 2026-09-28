@@ -597,6 +597,50 @@ function Index() {
               </article>
 
               <article className="publication-entry">
+                <span className="publication-year">2025</span>
+                <div>
+                  <p className="publication-type">Journal article · Volume 13, Issue 1</p>
+                  <h4>
+                    Advancing Sustainability in Data Centers: Evaluation of Hybrid Air/Liquid
+                    Cooling Schemes for IT Payload Using Sea Water
+                  </h4>
+                  <p>
+                    Imran Latif, Muhammad Mubashar Ashraf, Umaima Haider, Gemma Reeves, Alexandrina
+                    Untaroiu, Fábio Coelho, and Denis Browne
+                  </p>
+                  <cite>IEEE Transactions on Cloud Computing</cite>
+                  <span className="publication-article"> · Pages 184–197</span>
+                  <div className="publication-actions">
+                    <a
+                      className="publication-doi"
+                      href="https://ieeexplore.ieee.org/document/10814061/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View article <ExternalLink size={15} aria-hidden="true" />
+                    </a>
+                    <a
+                      className="publication-doi"
+                      href="https://doi.org/10.1109/TCC.2024.3521666"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      DOI: 10.1109/TCC.2024.3521666
+                      <ExternalLink size={15} aria-hidden="true" />
+                    </a>
+                    <a
+                      className="publication-doi"
+                      href="https://repository.uel.ac.uk/download/b6db84c4fab439bfdee25e2f34255c7044a6ccf79a815b98a5661e02dc3e8134/1851948/Advancing_Sustainability_in_Data_Centers.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Read accepted manuscript (PDF) <Download size={15} aria-hidden="true" />
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <article className="publication-entry">
                 <span className="publication-year">2024</span>
                 <div>
                   <p className="publication-type">Journal article · Volume 42</p>
