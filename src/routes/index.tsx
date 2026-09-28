@@ -24,7 +24,7 @@ import { useEffect, useRef, useState, type TouchEvent, type WheelEvent } from "r
 import heroImage from "@/assets/data-center-hero.jpg";
 import afzaIcon from "@/assets/afza-icon.png";
 import harisImage from "@/assets/haris-masood.png";
-import raziaImage from "@/assets/razia-white-bg.webp";
+import raziaImage from "@/assets/raazia-portrait.webp";
 import rehanaImage from "@/assets/rehana-tabasum.png";
 import sherazImage from "@/assets/sheraz.png";
 import farazImage from "@/assets/faraz-white-bg.webp";
