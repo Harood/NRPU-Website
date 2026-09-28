@@ -7,6 +7,8 @@ import {
   ChevronRight,
   Cpu,
   Database,
+  Download,
+  ExternalLink,
   Gauge,
   Leaf,
   MapPinned,
@@ -20,9 +22,8 @@ import {
 import { useEffect, useRef, useState, type TouchEvent, type WheelEvent } from "react";
 
 import heroImage from "@/assets/data-center-hero.jpg";
-import femaleIcon from "@/assets/femaleicon.jpeg";
+import afzaIcon from "@/assets/afza-icon.png";
 import harisImage from "@/assets/haris-masood.png";
-import mahamImage from "@/assets/maham-white-bg.webp";
 import raziaImage from "@/assets/razia-white-bg.webp";
 import rehanaImage from "@/assets/rehana-tabasum.png";
 import sherazImage from "@/assets/sheraz.png";
@@ -30,6 +31,7 @@ import farazImage from "@/assets/faraz-white-bg.webp";
 import mustafaImage from "@/assets/mustafa-white-bg.webp";
 import shenilaImage from "@/assets/shenila-white-bg.webp";
 import umaimaImage from "@/assets/umaima-white-bg.webp";
+import sunehraIcon from "@/assets/zunaira-icon.png";
 import nedSeEmblem from "@/assets/nedlogo-transparent.png";
 
 export const Route = createFileRoute("/")({
@@ -94,12 +96,32 @@ const analysisAreas = [
 ];
 
 const projectTeam = [
-  { name: "Rehana Tabasum", role: "Research Assistant · Group Lead", image: rehanaImage },
-  { name: "Haris Masood", role: "Final Year Student", image: harisImage },
-  { name: "Afza Khursheed", role: "Final Year Student", image: femaleIcon },
-  { name: "Zunaira Anwar", role: "Final Year Student", image: femaleIcon },
-  { name: "Razia Imran Reshamwala", role: "3rd Year Student", image: raziaImage },
-  { name: "Maham Faisal", role: "3rd Year Student", image: mahamImage },
+  { name: "Engr. Rehana Tabasum", role: "Research Assistant", image: rehanaImage },
+  {
+    name: "Ms. Afza Khursheed",
+    role: "Undergraduate Research Student",
+    image: afzaIcon,
+  },
+  {
+    name: "Mr. Haris Masood",
+    role: "Undergraduate Research Student",
+    image: harisImage,
+  },
+  {
+    name: "Ms. Sunehra",
+    role: "Undergraduate Research Student",
+    image: sunehraIcon,
+  },
+  {
+    name: "Ms. Raazia Imran Reshamwala",
+    role: "Undergraduate Research Student",
+    image: raziaImage,
+  },
+  {
+    name: "Ms. Maham Faisal",
+    role: "Undergraduate Research Student",
+    image: sunehraIcon,
+  },
 ];
 
 const leadership = [
@@ -114,7 +136,7 @@ const leadership = [
 ];
 
 const externalCollaboration = [
-  { name: "Dr. Umaima Haider", role: "External Collaboration", image: umaimaImage },
+  { name: "Dr. Umaima Haider", role: "University of East London", image: umaimaImage },
 ];
 
 const researchProjects = [
@@ -549,26 +571,71 @@ function Index() {
               <p className="section-kicker">Publication</p>
               <h3 id="publication-title">Published research</h3>
             </div>
-            <div className="publication-entry">
-              <span className="publication-year">2026</span>
-              <div>
-                <p className="publication-type">Journal article · Volume 52</p>
-                <h4>
-                  Cost-benefit and environmental analysis of enhanced network switch refresh model
-                  for data centers
-                </h4>
-                <p>Syed Muhammad Sheraz, Asad Arfeen, and Umaima Haider</p>
-                <cite>Sustainable Computing: Informatics and Systems</cite>
-                <span className="publication-article"> · Article 101469</span>
-                <a
-                  className="publication-doi"
-                  href="https://doi.org/10.1016/j.suscom.2026.101469"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View DOI <ChevronRight size={16} aria-hidden="true" />
-                </a>
-              </div>
+            <div className="publication-list">
+              <article className="publication-entry">
+                <span className="publication-year">2026</span>
+                <div>
+                  <p className="publication-type">Journal article · Volume 52</p>
+                  <h4>
+                    Cost-benefit and environmental analysis of enhanced network switch refresh model
+                    for data centers
+                  </h4>
+                  <p>Syed Muhammad Sheraz, Asad Arfeen, and Umaima Haider</p>
+                  <cite>Sustainable Computing: Informatics and Systems</cite>
+                  <span className="publication-article"> · Article 101469</span>
+                  <div className="publication-actions">
+                    <a
+                      className="publication-doi"
+                      href="https://doi.org/10.1016/j.suscom.2026.101469"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View DOI <ChevronRight size={16} aria-hidden="true" />
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <article className="publication-entry">
+                <span className="publication-year">2023</span>
+                <div>
+                  <p className="publication-type">Journal article · IEEE Access · Volume 11</p>
+                  <h4>
+                    Energy-Efficient Data Center Network Infrastructure With Network Switch Refresh
+                    Model
+                  </h4>
+                  <p>Syed Muhammad Sheraz, Asad Arfeen, and Umaima Haider</p>
+                  <cite>IEEE Access</cite>
+                  <span className="publication-article"> · Pages 45066–45082</span>
+                  <div className="publication-actions">
+                    <a
+                      className="publication-doi"
+                      href="https://ieeexplore.ieee.org/document/10113865/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View article <ExternalLink size={15} aria-hidden="true" />
+                    </a>
+                    <a
+                      className="publication-doi"
+                      href="https://doi.org/10.1109/ACCESS.2023.3272499"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      DOI: 10.1109/ACCESS.2023.3272499
+                      <ExternalLink size={15} aria-hidden="true" />
+                    </a>
+                    <a
+                      className="publication-doi"
+                      href="https://ieeexplore.ieee.org/iel7/6287639/6514899/10113865.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Download PDF <Download size={15} aria-hidden="true" />
+                    </a>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
         </div>
@@ -627,7 +694,7 @@ function Index() {
       >
         <div className="contact-information">
           <p className="section-kicker light">Contact information</p>
-          <h2 id="contact-title">Get in touch with the lab.</h2>
+          <h2 id="contact-title">Get in touch</h2>
           <div className="contact-detail">
             <span>Lab</span>
             <strong>Data Center Cooling and Energy Efficiency Lab</strong>
