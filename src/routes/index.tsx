@@ -31,7 +31,7 @@ import farazImage from "@/assets/faraz-white-bg.webp";
 import mustafaImage from "@/assets/mustafa-white-bg.webp";
 import shenilaImage from "@/assets/shenila-white-bg.webp";
 import umaimaImage from "@/assets/umaima-white-bg.webp";
-import sunehraIcon from "@/assets/zunaira-icon.png";
+import zunairaIcon from "@/assets/zunaira-icon.png";
 import nedSeEmblem from "@/assets/nedlogo-transparent.png";
 
 export const Route = createFileRoute("/")({
@@ -99,28 +99,28 @@ const projectTeam = [
   { name: "Engr. Rehana Tabasum", role: "Research Assistant", image: rehanaImage },
   {
     name: "Ms. Afza Khursheed",
-    role: "Undergraduate Research Student",
+    role: "Undergraduate Student",
     image: afzaIcon,
   },
   {
     name: "Mr. Haris Masood",
-    role: "Undergraduate Research Student",
+    role: "Undergraduate Student",
     image: harisImage,
   },
   {
-    name: "Ms. Sunehra",
-    role: "Undergraduate Research Student",
-    image: sunehraIcon,
+    name: "Ms. Zunaira Anwar",
+    role: "Undergraduate Student",
+    image: zunairaIcon,
   },
   {
     name: "Ms. Raazia Imran Reshamwala",
-    role: "Undergraduate Research Student",
+    role: "Undergraduate Student",
     image: raziaImage,
   },
   {
     name: "Ms. Maham Faisal",
-    role: "Undergraduate Research Student",
-    image: sunehraIcon,
+    role: "Undergraduate Student",
+    image: zunairaIcon,
   },
 ];
 
